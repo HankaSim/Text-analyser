@@ -33,8 +33,10 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ] 
 
-dekorace1 = "-" * 40
-dekorace2 = "-" * 23
+import re
+
+linka1 = "-" * 40
+linka2 = "-" * 23
 
 #ověření uživatele
 uzivatele = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123" }
@@ -53,7 +55,7 @@ else:
 vyber = input("Vyberte jeden ze tří textů.")
 if vyber.isnumeric and int(vyber) in range(1,4):
     print("Bude analyzován text č.", vyber)
-    print(dekorace1)
+    print(linka1)
     vyber = int(vyber)
 else:
     print("Špatný výběr!")
@@ -63,7 +65,6 @@ else:
 #analýza textu
 seznam_objektu = list()
 
-import re
 for slovo in (vybrany_text := re.split(" |-|\n",TEXTS[vyber-1])):
     seznam_objektu.append(slovo.strip(".,"))
 
@@ -103,7 +104,7 @@ f"There are {len(upper_words)} uppercase words.",
 f"There are {len(lower_words)} lowercase words.",
 f"There are {len(cisla)} numeric strings.",
 f"The sum of all numbers: {sum(cisla)}",
-dekorace1,
+linka1,
 sep= "\n"
 )
 
@@ -124,11 +125,11 @@ for cislice in serazeno:
 #Výstup graf
 hvezda = "*"
 print(f"LEN|  OCCURENCES   |NR.",
-        dekorace2,
+        linka2,
         sep= "\n")
 for udaj in pocty_cislic:
     print(
         f"{udaj: ^3}|{pocty_cislic[udaj] * hvezda: <15}|{pocty_cislic[udaj]}",
-        dekorace2,
+        linka2,
         sep = "\n"
     )
